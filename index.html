@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Futuro &#8212; Manifesto per il commercialista AI-native</title>
+<meta name="description" content="La compliance non perde importanza. Perde differenziale. Un manifesto e un framework per il commercialista AI-native.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:        #09090A;
+  --bg-1:      #0E0F10;
+  --bg-2:      #141517;
+  --line:      rgba(255,255,255,0.07);
+  --line-mid:  rgba(255,255,255,0.13);
+  --text:      #DDD8CF;
+  --text-dim:  #6B6860;
+  --text-mid:  #9A958D;
+  --acc:       #A8C9A0;
+  --acc-dim:   rgba(168,201,160,0.10);
+  --acc-glow:  rgba(168,201,160,0.05);
+  --acc-line:  rgba(168,201,160,0.22);
+  --white:     #EDEAE4;
+  --red:       #C87060;
+  --amber:     #C8A060;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+[id] { scroll-margin-top: 64px; }
+#progress-bar { position: fixed; top: 0; left: 0; z-index: 300; height: 2px; width: 0%; background: var(--acc); pointer-events: none; transition: width 0.08s linear; }
+body::before { content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); }
+body::after { content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,0.014) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px); background-size: 64px 64px; }
+nav, section, footer, .s-bar, .hard-truth, .manifesto-section, .change-section, .tempo-section, .test-section, .contact-section, .accent-block, .chiusura { position: relative; z-index: 1; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; border-bottom: 1px solid var(--line); background: rgba(9,9,10,0.94); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.nav-brand { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); text-decoration: none; white-space: nowrap; }
+.nav-brand span { color: var(--acc); }
+.nav-links { display: flex; list-style: none; align-items: center; }
+.nav-links a { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); text-decoration: none; padding: 0 16px; height: 56px; display: flex; align-items: center; border-left: 1px solid var(--line); transition: color 0.2s; }
+.nav-links li:last-child a { border-right: 1px solid var(--line); }
+.nav-links a:hover, .nav-links a.active { color: var(--white); }
+.nav-cta { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.10em; text-transform: uppercase; color: var(--bg); background: var(--acc); padding: 8px 20px; text-decoration: none; margin-left: 20px; white-space: nowrap; transition: opacity 0.2s; }
+.nav-cta:hover { opacity: 0.82; }
+.s-bar { height: 40px; border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); display: flex; align-items: center; background: var(--bg-1); }
+.s-bar-num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--acc); padding: 0 22px; height: 100%; display: flex; align-items: center; border-right: 1px solid var(--line); min-width: 60px; }
+.s-bar-title { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); padding: 0 22px; height: 100%; display: flex; align-items: center; }
+.s-bar-right { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); padding: 0 22px; border-left: 1px solid var(--line); height: 100%; display: flex; align-items: center; }
+.section-wrap { padding: 88px 80px; border-bottom: 1px solid var(--line); }
+.section-wrap.alt { background: var(--bg-1); }
+.col-2 { display: grid; grid-template-columns: 300px 1fr; gap: 72px; align-items: start; }
+.display { font-family: 'Fraunces', serif; font-weight: 300; line-height: 1.02; letter-spacing: -0.025em; color: var(--white); }
+.display em { font-style: italic; color: var(--acc); }
+.display-xl { font-size: clamp(34px, 4.6vw, 62px); }
+.display-lg { font-size: clamp(26px, 3.2vw, 44px); }
+.display-md { font-size: clamp(20px, 2.4vw, 32px); }
+.s-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--acc); display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.s-label::before { content: ''; display: block; width: 16px; height: 1px; background: var(--acc); }
+.body-md { font-size: 14px; color: var(--text-mid); line-height: 1.85; }
+.body-md p + p { margin-top: 14px; }
+.body-md strong { color: var(--white); font-weight: 600; }
+.btn { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.10em; text-transform: uppercase; text-decoration: none; display: inline-block; padding: 12px 28px; transition: opacity 0.2s, border-color 0.2s, color 0.2s; }
+.btn-primary { color: var(--bg); background: var(--acc); }
+.btn-primary:hover { opacity: 0.85; }
+.btn-ghost { color: var(--text-dim); border: 1px solid var(--line-mid); }
+.btn-ghost:hover { color: var(--white); border-color: var(--acc); }
+.accent-block { padding: 72px 80px; background: var(--bg-2); border-top: 1px solid var(--acc-line); border-bottom: 1px solid var(--acc-line); }
+.accent-text { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(22px, 3.2vw, 46px); color: var(--white); letter-spacing: -0.025em; line-height: 1.12; max-width: 800px; }
+.accent-text em { color: var(--acc); font-style: italic; }
+.hero { padding-top: 56px; display: flex; flex-direction: column; }
+.hero-main { display: grid; grid-template-columns: 1fr 300px; border-bottom: 1px solid var(--line); min-height: calc(100vh - 56px); }
+.hero-left { padding: 80px; border-right: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; gap: 52px; }
+.hero-kicker { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--acc); padding: 8px 14px; border: 1px solid var(--acc-line); background: var(--acc-glow); display: inline-block; }
+.hero-title { margin: 24px 0 0; }
+.hero-sub { font-size: 14px; color: var(--text-mid); line-height: 1.9; max-width: 540px; margin-top: 22px; }
+.hero-path { display: flex; align-items: center; gap: 6px; margin-top: 20px; flex-wrap: wrap; }
+.hero-path-step { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--acc); padding: 5px 12px; border: 1px solid var(--acc-line); background: var(--acc-glow); }
+.hero-path-arrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-dim); }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-right { display: flex; flex-direction: column; }
+.hero-panel { flex: 1; padding: 28px 32px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+.hero-panel:last-child { border-bottom: none; }
+.hp-q { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--acc); }
+.hp-line { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; color: var(--white); line-height: 1.3; }
+.hp-desc { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim); line-height: 1.55; }
+.hero-bottom { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); }
+.hb-cell { padding: 16px 24px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 3px; }
+.hb-cell:last-child { border-right: none; }
+.hb-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); }
+.hb-val { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px; color: var(--text-mid); }
+.hard-truth { border-bottom: 1px solid var(--line); background: var(--bg-2); }
+.ht-bar { height: 40px; border-bottom: 1px solid var(--line); display: flex; align-items: center; padding: 0 80px; gap: 16px; }
+.ht-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); padding: 3px 8px; border: 1px solid rgba(200,160,96,0.25); background: rgba(200,160,96,0.06); }
+.ht-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-dim); }
+.ht-body { display: grid; grid-template-columns: 1fr 1fr; }
+.ht-main { padding: 64px 80px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 20px; }
+.ht-headline { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(22px, 3vw, 38px); color: var(--white); letter-spacing: -0.02em; line-height: 1.1; }
+.ht-text { font-size: 14px; color: var(--text-mid); line-height: 1.85; }
+.ht-text strong { color: var(--white); font-weight: 600; }
+.ht-trappole-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); margin-top: 8px; margin-bottom: 4px; }
+.ht-trap { padding: 13px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--text-mid); line-height: 1.75; }
+.ht-trap strong { color: var(--white); font-weight: 600; }
+.ht-aside { padding: 48px 56px; display: flex; flex-direction: column; justify-content: center; gap: 0; }
+.ht-aside-item { display: flex; flex-direction: column; gap: 6px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.ht-aside-item:last-child { border-bottom: none; padding-bottom: 0; }
+.ht-aside-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--acc); }
+.ht-aside-text { font-size: 13px; color: var(--text-mid); line-height: 1.75; }
+.ht-aside-text strong { color: var(--white); font-weight: 600; }
+.manifesto-section { border-bottom: 1px solid var(--line); background: var(--bg-2); }
+.manifesto-header { padding: 88px 80px 64px; border-bottom: 1px solid var(--line); }
+.manifesto-header h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(28px, 3.6vw, 50px); color: var(--white); letter-spacing: -0.025em; line-height: 1.04; max-width: 660px; margin-top: 14px; }
+.manifesto-header h2 em { font-style: italic; color: var(--acc); }
+.manifesto-declarations { padding: 0 80px 88px; }
+.decl-item { display: grid; grid-template-columns: 64px 1fr; gap: 32px; align-items: start; padding: 44px 0; border-bottom: 1px solid var(--line); }
+.decl-item:last-child { border-bottom: none; padding-bottom: 0; }
+.decl-num { position: relative; font-family: 'Fraunces', serif; font-weight: 300; font-size: 32px; color: var(--acc); letter-spacing: -0.02em; line-height: 1; opacity: 0.6; }
+.decl-num::after { content: ''; position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); width: 1px; height: 44px; background: linear-gradient(to bottom, var(--acc-line), transparent); }
+.decl-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px; color: var(--white); letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 12px; }
+.decl-text { font-size: 13px; color: var(--text-mid); line-height: 1.9; max-width: 640px; }
+.decl-text strong { color: var(--white); font-weight: 600; }
+.arch-stack { margin-top: 44px; }
+.layer-row { display: grid; grid-template-columns: 36px 200px 1fr auto; align-items: start; gap: 24px; padding: 32px 0; border-bottom: 1px solid var(--line); transition: background 0.18s, padding 0.18s; }
+.layer-row:first-child { border-top: 1px solid var(--line); }
+.layer-row:hover { background: var(--bg-1); padding-left: 12px; padding-right: 12px; margin: 0 -12px; }
+.layer-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--acc); letter-spacing: 0.06em; padding-top: 2px; }
+.layer-name { display: flex; flex-direction: column; gap: 3px; padding-top: 1px; }
+.layer-name-main { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--white); letter-spacing: -0.01em; line-height: 1.2; }
+.layer-name-sub { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-dim); }
+.layer-def { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.03em; line-height: 1.6; margin-bottom: 10px; display: block; }
+.layer-text { font-size: 13px; color: var(--text-mid); line-height: 1.8; }
+.layer-eg { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim); line-height: 1.6; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.layer-eg-label { color: var(--acc); font-size: 9px; letter-spacing: 0.10em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+.layer-badge { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.10em; text-transform: uppercase; padding: 4px 10px; white-space: nowrap; align-self: start; flex-shrink: 0; }
+.badge-h { background: var(--acc-dim); color: var(--acc); }
+.badge-m { background: rgba(200,160,96,0.10); color: var(--amber); }
+.badge-l { background: rgba(200,112,96,0.10); color: var(--red); }
+.arch-thesis { margin-top: 40px; padding: 32px 36px; background: var(--bg-2); border: 1px solid rgba(168,201,160,0.15); border-left: 2px solid rgba(168,201,160,0.35); }
+.arch-thesis p { font-family: 'Fraunces', serif; font-weight: 400; font-size: 18px; line-height: 1.5; color: var(--acc); }
+.arch-thesis p em { font-style: italic; }
+
+/* — FRAMEWORK POLISH — */
+.arch-stack { position: relative; }
+.layer-row { position: relative; }
+.layer-row::before {
+  content: '';
+  position: absolute; left: 18px; top: 0; bottom: 0;
+  width: 1px; background: linear-gradient(to bottom, transparent, var(--line-mid), transparent);
+  opacity: 0.35; pointer-events: none;
+}
+.layer-row:first-child::before { top: 32px; }
+.layer-row:last-child::before { bottom: 32px; }
+.layer-num { position: relative; z-index: 1; }
+.layer-num::before {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%); width: 28px; height: 28px;
+  border: 1px solid var(--acc-line); background: var(--bg-1); z-index: -1;
+}
+.layer-def { max-width: 760px; }
+.layer-text { max-width: 760px; }
+.layer-eg { max-width: 760px; }
+.change-section, .tempo-section, .test-section, .contact-section { padding: 88px 80px; border-bottom: 1px solid var(--line); }
+.change-section, .contact-section { background: var(--bg-1); }
+.test-section { background: var(--bg-2); }
+.change-grid, .tempo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 44px; }
+.change-col, .tempo-col { border: 1px solid var(--line); display: flex; flex-direction: column; }
+.change-col-head, .tempo-col-head { padding: 18px 28px; border-bottom: 1px solid var(--line); font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.change-col-head::before, .tempo-col-head::before { content: ''; width: 12px; height: 1px; display: block; }
+.change-col-head.loses, .tempo-col-head.a { color: var(--red); }
+.change-col-head.loses::before, .tempo-col-head.a::before { background: var(--red); }
+.change-col-head.gains, .tempo-col-head.b { color: var(--acc); }
+.change-col-head.gains::before, .tempo-col-head.b::before { background: var(--acc); }
+.change-item { padding: 18px 28px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.change-item:last-child { border-bottom: none; }
+.change-item-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; color: var(--white); line-height: 1.25; }
+.change-item-desc { font-size: 12px; color: var(--text-mid); line-height: 1.7; }
+.tempo-col-body { padding: 28px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.tempo-col-body p { font-size: 13px; color: var(--text-mid); line-height: 1.8; }
+.tempo-col-body p strong { color: var(--white); font-weight: 600; }
+.tempo-col-footer { padding: 16px 28px; border-top: 1px solid var(--line); font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim); line-height: 1.6; }
+.tempo-statement { margin-top: 0; padding: 24px 28px; border-top: 1px solid var(--line); background: var(--bg-2); }
+.tempo-statement-text { font-family: 'Syne', sans-serif; font-weight: 700; font-size: clamp(18px, 2.2vw, 26px); color: var(--white); letter-spacing: -0.02em; line-height: 1.2; }
+.tempo-statement-text em { color: var(--acc); font-style: normal; }
+.test-intro { border-bottom: 1px solid var(--line); padding-bottom: 32px; margin-bottom: 32px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+.test-question { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(26px, 3.4vw, 48px); color: var(--white); letter-spacing: -0.025em; line-height: 1.06; }
+.test-question em { color: var(--acc); font-style: italic; }
+.test-answers { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.test-answer { border: 1px solid var(--line); padding: 36px; display: flex; flex-direction: column; gap: 12px; }
+.test-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; }
+.test-tag.after { color: var(--text-dim); }
+.test-tag.before { color: var(--acc); }
+.test-answer-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.2; }
+.test-answer-title.after { color: var(--text-mid); }
+.test-answer-title.before { color: var(--white); }
+.test-answer-text { font-size: 13px; color: var(--text-mid); line-height: 1.85; }
+.test-note { margin-top: 32px; padding: 22px 28px; border: 1px solid var(--line); background: var(--bg-1); font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim); line-height: 1.75; }
+.test-note strong { color: var(--text-mid); }
+.contact-chain { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 44px; }
+.chain-step { border: 1px solid var(--line); padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.chain-num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--acc); }
+.chain-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; color: var(--white); line-height: 1.25; }
+.chain-text { font-size: 12px; color: var(--text-mid); line-height: 1.7; }
+.chain-warn { margin-top: 32px; padding: 22px 28px; border-left: 2px solid var(--red); background: rgba(200,112,96,0.05); font-size: 13px; color: var(--text-mid); line-height: 1.8; }
+.chain-warn strong { color: var(--white); font-weight: 600; }
+.chiusura { padding: 120px 80px; border-bottom: 1px solid var(--line); background: var(--bg-2); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+.chiusura-left { display: flex; flex-direction: column; gap: 32px; }
+.chiusura-question { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(26px, 3.4vw, 48px); color: var(--white); letter-spacing: -0.025em; line-height: 1.06; padding-left: 20px; border-left: 2px solid var(--acc); }
+.chiusura-question em { color: var(--acc); font-style: italic; }
+.chiusura-note { font-size: 14px; color: var(--text-mid); line-height: 1.85; max-width: 480px; }
+.chiusura-email { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--text-dim); letter-spacing: 0.04em; display: flex; align-items: center; gap: 10px; }
+.chiusura-email::before { content: ''; display: block; width: 20px; height: 1px; background: var(--acc); flex-shrink: 0; }
+.chiusura-email a { color: var(--acc); text-decoration: none; transition: opacity 0.2s; }
+.chiusura-contact { max-width: 480px; padding: 22px 24px; border: 1px solid var(--acc-line); background: var(--acc-glow); display: flex; flex-direction: column; gap: 12px; }
+.chiusura-contact-kicker { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--acc); }
+.chiusura-contact-text { font-size: 13px; color: var(--text-mid); line-height: 1.75; }
+.chiusura-contact-link { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.10em; text-transform: uppercase; color: var(--bg); background: var(--acc); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; width: fit-content; padding: 10px 18px; transition: opacity 0.2s; }
+.chiusura-contact-link:hover { opacity: 0.85; }
+.chiusura-right { display: flex; flex-direction: column; gap: 0; border-left: 1px solid var(--line); padding-left: 80px; }
+.chiusura-pattern { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: clamp(15px, 1.8vw, 20px); color: var(--text-mid); letter-spacing: -0.01em; line-height: 1.6; }
+.chiusura-pattern strong { color: var(--text); font-style: normal; font-weight: 400; }
+.chiusura-pattern-note { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.06em; margin-top: 20px; }
+footer { padding: 44px 80px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+.footer-brand { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); margin-bottom: 6px; }
+.footer-brand span { color: var(--acc); }
+.footer-desc { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.04em; line-height: 1.6; margin-bottom: 14px; }
+.footer-links { display: flex; flex-wrap: wrap; }
+.footer-links a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim); text-decoration: none; padding: 3px 14px 3px 0; letter-spacing: 0.04em; transition: color 0.2s; }
+.footer-links a:hover { color: var(--text); }
+.footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.06em; text-align: right; white-space: nowrap; }
+.fade { opacity: 0; transform: translateY(10px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade.show { opacity: 1; transform: none; }
+.fade-d1 { transition-delay: 0.08s; }
+.fade-d2 { transition-delay: 0.16s; }
+@media (max-width: 1100px) { .col-2 { grid-template-columns: 1fr; gap: 40px; } .hero-bottom { grid-template-columns: 1fr 1fr; } .hb-cell:nth-child(2) { border-right: none; } .hb-cell:nth-child(n+3) { border-top: 1px solid var(--line); } .layer-row { grid-template-columns: 32px 180px 1fr auto; gap: 20px; } .ht-body { grid-template-columns: 1fr; } .ht-main { border-right: none; border-bottom: 1px solid var(--line); } .contact-chain { grid-template-columns: 1fr 1fr; } .chiusura { grid-template-columns: 1fr; gap: 52px; } .chiusura-right { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 44px; } }
+@media (max-width: 900px) { nav { padding: 0 28px; } .nav-links { display: none; } .hero-main { grid-template-columns: 1fr; min-height: auto; } .hero-right { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); } .hero-panel { border-right: 1px solid var(--line); } .hero-panel:nth-child(even) { border-right: none; } .hero-panel:nth-child(3) { grid-column: 1/-1; border-top: 1px solid var(--line); } .layer-row { grid-template-columns: 32px 1fr; gap: 16px; } .layer-row .layer-badge { display: none; } .change-grid, .tempo-grid, .test-answers { grid-template-columns: 1fr; } .test-intro { flex-direction: column; gap: 12px; } footer { grid-template-columns: 1fr; gap: 20px; } .footer-copy { text-align: left; } }
+@media (max-width: 680px) { [id] { scroll-margin-top: 48px; } nav { padding: 0 18px; height: 48px; } .nav-brand { font-size: 11px; letter-spacing: 0.10em; } .nav-cta { font-size: 10px; padding: 7px 14px; margin-left: 10px; } .hero-left { padding: 36px 20px 32px; gap: 28px; } .hero-kicker { font-size: 9px; letter-spacing: 0.10em; padding: 7px 12px; } .hero-title { margin-top: 16px; } .display-xl { font-size: clamp(27px, 8.5vw, 40px); } .display-lg { font-size: clamp(22px, 7vw, 32px); } .display-md { font-size: clamp(18px, 5vw, 26px); } .hero-sub { font-size: 14px; margin-top: 14px; max-width: 100%; } .hero-path { gap: 4px; margin-top: 14px; } .hero-path-step { font-size: 9px; padding: 5px 10px; } .hero-path-arrow { display: none; } .hero-actions { flex-direction: column; } .hero-actions .btn { text-align: center; } .hero-right { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); } .hero-panel { padding: 16px 14px; border-bottom: none; } .hero-panel:nth-child(1) { border-right: 1px solid var(--line); } .hero-panel:nth-child(2) { border-right: none; } .hero-panel:nth-child(3) { display: none; } .hp-q { font-size: 8px; letter-spacing: 0.08em; } .hp-line { font-size: 12px; line-height: 1.35; } .hp-desc { display: none; } .hero-bottom { grid-template-columns: 1fr 1fr; } .hb-cell { padding: 12px 14px; } .hb-label { font-size: 8px; } .hb-val { font-size: 10px; } .s-bar-right { display: none; } .s-bar-title { font-size: 9px; letter-spacing: 0.08em; } .s-bar-num { min-width: 52px; padding: 0 16px; } .section-wrap, .change-section, .tempo-section, .test-section, .contact-section { padding: 48px 20px; } .accent-block { padding: 44px 20px; } .accent-text { font-size: clamp(19px, 7vw, 28px); } .ht-bar { padding: 0 20px; } .ht-main { padding: 40px 20px; } .ht-aside { padding: 28px 20px; } .manifesto-header { padding: 48px 20px 36px; } .manifesto-header h2 { font-size: clamp(24px, 7.5vw, 36px); } .manifesto-declarations { padding: 0 20px 48px; } .decl-item { grid-template-columns: 28px 1fr; gap: 14px; padding: 28px 0; } .decl-num { font-size: 20px; } .decl-num::after { display: none; } .decl-title { font-size: 15px; margin-bottom: 8px; } .decl-text { font-size: 13px; } .arch-stack { margin-top: 28px; display: grid; gap: 12px; } .layer-row { display: grid !important; grid-template-columns: 30px 1fr; gap: 10px 14px; padding: 18px 16px; border: 1px solid var(--line); background: rgba(255,255,255,0.015); transition: none; } .layer-row:first-child { border-top: 1px solid var(--line); } .layer-row:hover { background: rgba(255,255,255,0.015); padding: 18px 16px; margin: 0; } .layer-row::before { display: none; } .layer-num { font-size: 10px; padding-top: 3px; } .layer-num::before { width: 26px; height: 26px; } .layer-name { padding-top: 0; } .layer-name-main { font-size: 15px; } .layer-name-sub { font-size: 8px; line-height: 1.35; } .layer-body { grid-column: 1 / -1; } .layer-def { font-size: 10px; line-height: 1.65; margin-bottom: 0; } .layer-badge { display: inline-flex; grid-column: 1 / -1; justify-self: start; margin-top: 2px; font-size: 8px; } .layer-text, .layer-eg { display: none; } .arch-thesis { padding: 20px 20px; margin-top: 22px; } .arch-thesis p { font-size: 15px; } .change-item, .change-col-head { padding: 14px 20px; } .tempo-col-body { padding: 20px; } .tempo-col-head { padding: 14px 20px; } .tempo-col-footer { padding: 12px 20px; } .tempo-statement { padding: 20px; } .tempo-statement-text { font-size: clamp(16px, 5vw, 22px); } .test-intro { margin-bottom: 24px; padding-bottom: 24px; } .test-question { font-size: clamp(22px, 7.5vw, 32px); } .test-answer { padding: 24px 20px; } .test-note { padding: 16px 20px; font-size: 11px; } .contact-chain { grid-template-columns: 1fr 1fr !important; } .chain-step { padding: 18px 16px; } .chain-warn { padding: 18px 20px; } .chiusura { padding: 60px 20px; gap: 36px; } .chiusura-question { font-size: clamp(22px, 7vw, 32px); padding-left: 14px; } .chiusura-right { padding-top: 28px; } .chiusura-pattern { font-size: clamp(14px, 4vw, 18px); } footer { padding: 32px 20px; } }
+@media (max-width: 480px) { .contact-chain { grid-template-columns: 1fr !important; } .change-grid, .tempo-grid, .test-answers { gap: 10px; } .layer-row { padding: 16px 14px; } .layer-row:hover { padding: 16px 14px; } }
+@media (max-width: 360px) { .hero-left { padding: 28px 14px 24px; } .display-xl { font-size: clamp(24px, 8vw, 34px); } .manifesto-header { padding: 36px 14px 28px; } .manifesto-declarations { padding: 0 14px 36px; } .ht-main { padding: 32px 14px; } .ht-aside { padding: 24px 14px; } .section-wrap, .change-section, .tempo-section, .test-section, .contact-section { padding: 40px 14px; } .chiusura { padding: 48px 14px; } }
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<nav>
+  <a href="#top" class="nav-brand">Studio <span>Futuro</span></a>
+  <ul class="nav-links">
+    <li><a href="#hard-truth">Diagnosi</a></li><li><a href="#manifesto">Manifesto</a></li><li><a href="#framework">Framework</a></li><li><a href="#test">Il test</a></li><li><a href="#chiusura">Contatto</a></li>
+  </ul>
+  <a href="mailto:hello@studiofuturo.it" class="nav-cta">Contattaci &#8594;</a>
+</nav>
+<section id="top" class="hero">
+  <div class="hero-main">
+    <div class="hero-left">
+      <div>
+        <span class="hero-kicker">Manifesto per il commercialista AI-native</span>
+        <h1 class="display display-xl hero-title fade">Il futuro della professione<br>non dipende dall&rsquo;AI.<br>Dipende da dove scegli<br><em>di stare.</em></h1>
+        <p class="hero-sub fade fade-d1">La compliance diventa pi&ugrave; automatizzabile, l&rsquo;informazione meno scarsa, i processi pi&ugrave; accessibili. Il valore non sparisce: si sposta verso chi sa leggere il contesto, assumere giudizio e stare prima delle decisioni.</p>
+        <div class="hero-path fade fade-d1"><span class="hero-path-step">Diagnosi</span><span class="hero-path-arrow">&#8594;</span><span class="hero-path-step">Manifesto</span><span class="hero-path-arrow">&#8594;</span><span class="hero-path-step">Framework</span></div>
+      </div>
+      <div class="hero-actions fade fade-d2"><a href="#manifesto" class="btn btn-primary">Leggi il Manifesto &#8594;</a><a href="#framework" class="btn btn-ghost">Esplora il Framework</a></div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-panel"><div class="hp-q">Efficienza non &egrave; rilevanza</div><div class="hp-line">Fare pi&ugrave; velocemente ci&ograve; che il mercato confronta meglio non costruisce una posizione migliore.</div><div class="hp-desc">Aumenta la capacit&agrave;, non automaticamente il valore percepito.</div></div>
+      <div class="hero-panel"><div class="hp-q">La compliance diventa comparabile</div><div class="hp-line">Quando un processo diventa standard, il mercato lo valuta sempre pi&ugrave; su velocit&agrave;, prezzo e affidabilit&agrave;.</div><div class="hp-desc">Il premio si sposta su ci&ograve; che resta scarso.</div></div>
+      <div class="hero-panel"><div class="hp-q">Il giudizio torna visibile</div><div class="hp-line">Quando la compliance si comprime, ci&ograve; che resta davvero professionale diventa pi&ugrave; riconoscibile.</div><div class="hp-desc">Era sempre la parte pi&ugrave; preziosa. Ora &egrave; anche pi&ugrave; evidente.</div></div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hb-cell"><span class="hb-label">Livello 01</span><span class="hb-val">Contesto Cliente</span></div><div class="hb-cell"><span class="hb-label">Livello 02</span><span class="hb-val">Giudizio</span></div><div class="hb-cell"><span class="hb-label">Livello 03</span><span class="hb-val">Orchestrazione</span></div><div class="hb-cell"><span class="hb-label">Livello 04</span><span class="hb-val">Compliance</span></div>
+  </div>
+</section>
+<div class="hard-truth" id="hard-truth"><div class="ht-bar"><span class="ht-tag">01 &#8212; Diagnosi</span><span class="ht-label">Il punto di partenza</span></div><div class="ht-body"><div class="ht-main fade"><h2 class="ht-headline">Il modello tradizionale continua a funzionare.<br>Per questo &egrave; difficile vedere cosa sta cambiando.</h2><p class="ht-text">I clienti restano. I flussi sono stabili. La macchina produce. &Egrave; esattamente questo che rende invisibile lo spostamento. <strong>La maggior parte degli studi non perder&agrave; clienti. Perder&agrave; rilevanza.</strong> E quando succede, &egrave; gi&agrave; avvenuto nel momento in cui diventa evidente.</p><p class="ht-text">Il vantaggio di chi si muove adesso non viene ancora pagato dal mercato &mdash; viene accumulato. Posizionamento, competenza, relazione. Quello che si costruisce adesso si vedr&agrave; tra 3&ndash;5 anni.</p><div class="ht-trappole-label">&#8212;&nbsp; tre trappole strutturali</div><div class="ht-trap"><strong>Ottimizzazione.</strong> L&rsquo;AI rende pi&ugrave; veloci, quindi la si usa per aumentare il volume. Ma pi&ugrave; efficienza nello stesso ruolo non cambia la posizione dello studio: aumenta la capacit&agrave;, non necessariamente il valore percepito.</div><div class="ht-trap"><strong>Competenza.</strong> Il problema non &egrave; l&rsquo;expertise in s&eacute; &mdash; &egrave; capire in cosa. La conoscenza normativa era un vantaggio quando era scarsa. Quando diventa accessibile, il vantaggio non sparisce: cambia indirizzo.</div><div class="ht-trap"><strong>Sistema.</strong> Non &egrave; un confronto con altri professionisti. &Egrave; un confronto con un contesto che sta ridefinendo cosa il cliente riconosce, confronta e paga. Chi ottimizza le mosse in un gioco che ha cambiato le regole non vince &mdash; arriva in ritardo.</div></div><div class="ht-aside fade fade-d1"><div class="ht-aside-item"><div class="ht-aside-label">Il segnale invisibile</div><div class="ht-aside-text">Non &egrave; il cliente che se ne va. &Egrave; il cliente che smette di portare le decisioni pi&ugrave; importanti. Il mandato resta &mdash; <strong>la rilevanza no.</strong></div></div><div class="ht-aside-item"><div class="ht-aside-label">La domanda sbagliata</div><div class="ht-aside-text">&laquo;Come mi difendo dall&rsquo;AI?&raquo; difende una posizione che si erode. <strong>&laquo;Dove si ricolloca il valore?&raquo;</strong> costruisce una posizione che regge. Sembrano simili.</div></div><div class="ht-aside-item"><div class="ht-aside-label">La finestra</div><div class="ht-aside-text">Il mercato italiano non ha ancora prezzato la differenza tra studi AI-fluenti e studi tradizionali. <strong>Questa &egrave; la fase pi&ugrave; preziosa &mdash; e la pi&ugrave; sottovalutata.</strong></div></div></div></div></div>
+<div class="accent-block fade"><p class="accent-text">La compliance non perde importanza.<br><em>Perde differenziale.</em></p></div>
+
+<div class="s-bar" id="segnali"><span class="s-bar-num">01B</span><span class="s-bar-title">I Segnali</span><span class="s-bar-right">Non previsioni &#8212; pressioni gi&agrave; visibili</span></div>
+
+<section class="section-wrap alt" id="segnali-section">
+  <div class="col-2 fade">
+    <div>
+      <div class="s-label">Cosa sta gi&agrave; accadendo</div>
+      <h2 class="display display-md">Non &egrave; una previsione.<br><em>&Egrave; una pressione.</em></h2>
+    </div>
+    <div class="body-md">
+      <p>Il cambiamento non arriva come un evento riconoscibile. Arriva prima come spostamento silenzioso: ci&ograve; che era scarso diventa accessibile, ci&ograve; che era manuale diventa comprimibile, ci&ograve; che era relazione pu&ograve; essere intermediato.</p>
+    </div>
+  </div>
+
+  <div class="contact-chain fade" style="margin-top: 44px;">
+    <div class="chain-step">
+      <div class="chain-num">01</div>
+      <div class="chain-title">La produttivit&agrave; si normalizza</div>
+      <div class="chain-text">Quando tutti possono produrre di pi&ugrave;, produrre di pi&ugrave; non basta pi&ugrave;. Diventa il nuovo minimo competitivo.</div>
+    </div>
+    <div class="chain-step">
+      <div class="chain-num">02</div>
+      <div class="chain-title">L&rsquo;informazione perde scarsit&agrave;</div>
+      <div class="chain-text">Norme, prassi e analisi preliminari diventano pi&ugrave; accessibili. Il valore si sposta dal sapere dove guardare al capire cosa farne.</div>
+    </div>
+    <div class="chain-step">
+      <div class="chain-num">03</div>
+      <div class="chain-title">La relazione si contende</div>
+      <div class="chain-text">Le piattaforme non automatizzano solo processi. Occupano abitudini, dati e punti di contatto con il cliente.</div>
+    </div>
+  </div>
+</section>
+
+<div class="s-bar" id="manifesto"><span class="s-bar-num">02</span><span class="s-bar-title">Il Manifesto</span><span class="s-bar-right">Sei posizioni &#8212; senza qualificazioni</span></div>
+<div class="manifesto-section"><div class="manifesto-header fade"><div class="s-label">Studio Futuro</div><h2>Sei posizioni sulla professione.<br>Ognuna dice qualcosa che <em>non si pu&ograve; pi&ugrave; evitare.</em></h2></div><div class="manifesto-declarations">
+<div class="decl-item fade"><div class="decl-num">I</div><div class="decl-body"><div class="decl-title">La compliance sta diventando una commodity. Non un dettaglio.</div><p class="decl-text">Per decenni una parte rilevante del valore percepito della professione &egrave; stata legata alla capacit&agrave; di gestire complessit&agrave; normativa, adempimenti, scadenze, procedure e interpretazioni operative. Quel livello non sparisce. Resta necessario. Ma quando diventa pi&ugrave; automatizzabile, pi&ugrave; accessibile e pi&ugrave; standardizzabile, smette di essere il luogo principale della differenziazione. <strong>Il problema non &egrave; che la compliance valga meno. &Egrave; che da sola non basta pi&ugrave; a costruire una posizione professionale forte.</strong></p></div></div>
+<div class="decl-item fade"><div class="decl-num">II</div><div class="decl-body"><div class="decl-title">Il problema non &egrave; adottare l&rsquo;AI. &Egrave; adottarla dentro un modello che non regge pi&ugrave;.</div><p class="decl-text">Molti studi useranno l&rsquo;AI per accelerare il lavoro esistente: produrre pi&ugrave; output, ridurre tempi, assorbire volume. &Egrave; utile, ma non basta. <strong>Se la tecnologia entra in un modello costruito sulla compliance come centro economico, rende quel modello pi&ugrave; efficiente &mdash; non necessariamente pi&ugrave; rilevante.</strong> La domanda non &egrave; quale strumento usare. &Egrave; quale posizione professionale costruire.</p></div></div>
+<div class="decl-item fade"><div class="decl-num">III</div><div class="decl-body"><div class="decl-title">Il giudizio non &egrave; un output. &Egrave; una responsabilit&agrave;.</div><p class="decl-text">L&rsquo;AI produce analisi articolate. Sa anche sbagliare in modo convincente: citare norme inesistenti, interpretare giurisprudenza fuori contesto, omettere casi rilevanti senza segnalarlo. <strong>L&rsquo;AI non firma. Chi firma risponde con la propria reputazione e il proprio ordine professionale. Nessun sistema assume quella responsabilit&agrave;.</strong> Questa distinzione non cambia con il miglioramento dei modelli. &Egrave; strutturale.</p></div></div>
+<div class="decl-item fade"><div class="decl-num">IV</div><div class="decl-body"><div class="decl-title">La posizione pi&ugrave; diffusa non ha nome. Ed &egrave; la pi&ugrave; vulnerabile.</div><p class="decl-text">N&eacute; esecutore efficiente nel volume, n&eacute; architetto insostituibile nel giudizio. <strong>La maggior parte dei professionisti si trova qui &mdash; non per scelta, per inerzia.</strong> Il rischio non &egrave; occuparla. &Egrave; non saperlo. Riconoscerla &egrave; scomodo. &Egrave; anche l&rsquo;unico punto di partenza reale.</p></div></div>
+<div class="decl-item fade"><div class="decl-num">V</div><div class="decl-body"><div class="decl-title">Il tasso orario non &egrave; un problema di listino. &Egrave; un problema di identit&agrave; professionale.</div><p class="decl-text">Prezza il tempo, non il valore. Con l&rsquo;AI quella distinzione diventa insostenibile: lo stesso risultato a un terzo del tempo pone al cliente una domanda che nessun professionista vuole sentirsi fare. <strong>Passare da fornitore di ore a partner di risultati non &egrave; un cambio di tariffa &mdash; &egrave; un cambio di mestiere.</strong></p></div></div>
+<div class="decl-item fade"><div class="decl-num">VI</div><div class="decl-body"><div class="decl-title">La finestra &egrave; aperta. Si restringe mentre leggi questo.</div><p class="decl-text">Il vantaggio di chi si muove adesso viene accumulato prima di essere riconosciuto dal mercato: metodo, posizione, linguaggio, relazione. <strong>La finestra si chiude quando la differenza tra studi AI-fluenti e studi tradizionali smette di essere invisibile.</strong> A quel punto non si costruisce pi&ugrave; un vantaggio. Si prova a recuperare distanza.</p></div></div>
+</div></div>
+<div class="s-bar" id="framework"><span class="s-bar-num">03</span><span class="s-bar-title">Il Framework</span><span class="s-bar-right">Concentrazione di valore &#8593; &nbsp;&#183;&nbsp; Automazione &#8595;</span></div>
+<section class="section-wrap alt"><div class="col-2 fade"><div><div class="s-label">Il Modello</div><h2 class="display display-md">Quattro livelli. L&rsquo;AI non elimina la compliance &mdash; ne cambia <em>il peso economico.</em></h2></div><div class="body-md"><p>Ogni studio gi&agrave; opera su questi livelli. Quello che sta cambiando &egrave; il loro costo relativo e il loro peso nella proposta di valore. <strong>Capire dove si colloca ogni attivit&agrave; &egrave; il presupposto di qualsiasi risposta che non sia semplicemente &ldquo;pi&ugrave; efficienza&rdquo;.</strong></p></div></div><div class="arch-stack fade">
+<div class="layer-row"><span class="layer-num">01</span><div class="layer-name"><span class="layer-name-main">Contesto Cliente</span><span class="layer-name-sub">Non replicabile dall&rsquo;esterno</span></div><div class="layer-body"><span class="layer-def">La comprensione accumulata di un cliente specifico: come decide, dove sottostima il rischio, cosa non dice ma vuole. Non &egrave; informazione &mdash; &egrave; storia condivisa.</span><p class="layer-text">Si costruisce in anni. Non si esporta, non si documenta completamente, non si recupera dall&rsquo;esterno. Chi entra oggi su quel cliente ha strumenti migliori &mdash; ma parte senza contesto. &Egrave; la barriera pi&ugrave; alta della professione, quasi invisibile perch&eacute; non appare nelle tariffe e non si vede nei curriculum.</p><div class="layer-eg"><span class="layer-eg-label">Esempio</span>Sai che quell&rsquo;imprenditore sta valutando una cessione &mdash; non perch&eacute; lo dichiari, ma perch&eacute; conosci la sua dinamica da anni. Quella lettura non &egrave; in nessun database.</div></div><span class="layer-badge badge-h">Massimo valore</span></div>
+<div class="layer-row"><span class="layer-num">02</span><div class="layer-name"><span class="layer-name-main">Giudizio</span><span class="layer-name-sub">Responsabilit&agrave; professionale</span></div><div class="layer-body"><span class="layer-def">Applicare expertise a decisioni senza risposta tecnicamente univoca &mdash; assumendo responsabilit&agrave; professionale sul risultato.</span><p class="layer-text">L&rsquo;AI non firma. Chi firma risponde. Questa distinzione non cambia con il miglioramento dei modelli &mdash; &egrave; strutturale. Diventa anzi pi&ugrave; rilevante man mano che l&rsquo;AI &egrave; pi&ugrave; capace.</p><div class="layer-eg"><span class="layer-eg-label">Esempio</span>Quella divisione societaria &egrave; fiscalmente ottimale. Ma innescherebbe un conflitto tra soci che renderebbe l&rsquo;operazione di fatto impossibile.</div></div><span class="layer-badge badge-h">Non automatizzabile</span></div>
+<div class="layer-row"><span class="layer-num">03</span><div class="layer-name"><span class="layer-name-main">Orchestrazione</span><span class="layer-name-sub">Il commercialista regista</span></div><div class="layer-body"><span class="layer-def">Progettare come il lavoro si muove tra persone e sistemi AI: cosa delegare, come verificare, quando riportare al giudizio umano.</span><p class="layer-text">Il professionista non programma &mdash; sceglie, integra e governa. Non suona ogni strumento: sa come devono suonare insieme e riconosce quando qualcosa suona male.</p><div class="layer-eg"><span class="layer-eg-label">Esempio</span>Non &egrave; chiedere all&rsquo;AI di scrivere un parere. &Egrave; costruire un flusso in cui l&rsquo;AI prepara la ricerca normativa e il professionista porta giudizio e responsabilit&agrave;.</div></div><span class="layer-badge badge-m">Nuova competenza</span></div>
+<div class="layer-row"><span class="layer-num">04</span><div class="layer-name"><span class="layer-name-main">Compliance</span><span class="layer-name-sub">Necessaria, ma sempre meno differenziante</span></div><div class="layer-body"><span class="layer-def">Adempimenti, dichiarazioni, bilanci, riconciliazioni, scadenze, procedure ricorrenti. Attivit&agrave; indispensabili, ma progressivamente pi&ugrave; standardizzabili e comprimibili.</span><p class="layer-text">La compliance non scompare. Diventa infrastruttura. Il rischio non &egrave; occuparsene: il rischio &egrave; costruire l&rsquo;identit&agrave; economica dello studio su un livello che il mercato tender&agrave; a percepire come sempre pi&ugrave; accessibile, automatizzabile e comparabile. Quando un&rsquo;attivit&agrave; diventa infrastruttura, resta necessaria &mdash; ma smette di giustificare da sola un premio professionale.</p><div class="layer-eg"><span class="layer-eg-label">Esempio</span>Le dichiarazioni, i controlli ricorrenti, le verifiche documentali e le procedure standard possono essere accelerate drasticamente. La domanda non &egrave; se farle meglio. &Egrave; cosa costruire sopra quel tempo liberato.</div></div><span class="layer-badge badge-l">Commodity</span></div>
+</div><div class="arch-thesis fade"><p>Il modello tradizionale monetizza la compliance. <em>Lo studio AI-native usa la compliance come infrastruttura e monetizza ci&ograve; che resta scarso: contesto, giudizio, orchestrazione.</em></p></div></section>
+<div class="s-bar" id="cambiamento"><span class="s-bar-num">04</span><span class="s-bar-title">Il Cambiamento</span><span class="s-bar-right">Cosa perde differenziale &nbsp;&#183;&nbsp; Cosa guadagna posizione</span></div>
+<div class="change-section"><div class="col-2 fade"><div><div class="s-label">La riallocazione</div><h2 class="display display-md">Il valore non sparisce.<br><em>Si ridistribuisce.</em></h2></div><div class="body-md"><p>Il mercato non declina gradualmente: si biforca. La domanda &egrave; da quale parte ci si trova quando quella linea diventa visibile. E quella linea diventa visibile sempre prima del previsto.</p></div></div><div class="change-grid fade"><div class="change-col"><div class="change-col-head loses">Perde differenziale</div><div class="change-item"><div class="change-item-title">La compliance come centro del modello</div><div class="change-item-desc">Il mercato continuer&agrave; a richiederla, ma tender&agrave; a compararla sempre di pi&ugrave; su velocit&agrave;, prezzo, affidabilit&agrave; e standardizzazione.</div></div><div class="change-item"><div class="change-item-title">La conoscenza normativa come vantaggio</div><div class="change-item-desc">Diventa accessibile. Smette di essere il motivo per cui il cliente sceglie un professionista rispetto a un altro.</div></div><div class="change-item"><div class="change-item-title">Il tasso orario</div><div class="change-item-desc">Prezza il tempo, non il valore. Insostenibile quando lo stesso risultato richiede un terzo del tempo.</div></div><div class="change-item"><div class="change-item-title">La competenza enciclopedica</div><div class="change-item-desc">La profondit&agrave; verticale su un dominio vale pi&ugrave; dell&rsquo;ampiezza generica. Il mercato lo sta gi&agrave; prezzando.</div></div></div><div class="change-col"><div class="change-col-head gains">Guadagna posizione</div><div class="change-item"><div class="change-item-title">Il giudizio contestualizzato</div><div class="change-item-desc">Non solo tecnicamente corretto &mdash; giusto per quel cliente in quel momento. Non replicabile senza storia condivisa.</div></div><div class="change-item"><div class="change-item-title">La relazione costruita nel tempo</div><div class="change-item-desc">Anni di conversazioni, scelte, momenti difficili. Non si recupera dall&rsquo;esterno &mdash; neanche con strumenti superiori.</div></div><div class="change-item"><div class="change-item-title">L&rsquo;orchestrazione</div><div class="change-item-desc">Progettare come l&rsquo;AI lavora, verificare gli output, governare i rischi. Rara, non standardizzabile, costruita solo con pratica deliberata.</div></div><div class="change-item"><div class="change-item-title">La responsabilit&agrave; di chi firma</div><div class="change-item-desc">L&rsquo;AI non risponde all&rsquo;ordine professionale. Chi firma risponde. Quella distinzione diventa pi&ugrave; preziosa man mano che l&rsquo;AI &egrave; pi&ugrave; capace.</div></div></div></div></div>
+<div class="s-bar" id="tempo"><span class="s-bar-num">05</span><span class="s-bar-title">Il Tempo Liberato</span><span class="s-bar-right">Non &egrave; risparmio &mdash; &egrave; una scelta</span></div>
+<div class="tempo-section"><div class="col-2 fade"><div><div class="s-label">La leva nascosta</div><h2 class="display display-md">Le ore liberate non sono margine. <em>Sono materia prima strategica.</em></h2></div><div class="body-md"><p>L&rsquo;AI comprime il tempo necessario per gestire processi ricorrenti di compliance. Quello spazio non &egrave; automaticamente valore: diventa valore solo se viene reinvestito in relazione, lettura dei dati, consulenza proattiva e presenza nelle decisioni. <strong>La tecnologia non decide la direzione. La rende pi&ugrave; visibile.</strong></p></div></div><div class="tempo-grid fade" style="margin-top: 44px;"><div class="tempo-col"><div class="tempo-col-head a">Scenario A &mdash; stesso modello</div><div class="tempo-col-body"><p>Le ore liberate vengono usate per acquisire nuovi clienti simili o gestire pi&ugrave; adempimenti. La struttura cresce, il modello non cambia.</p><p><strong>Risultato:</strong> lo studio aumenta la capacit&agrave;, ma resta nella stessa posizione. Produce di pi&ugrave;. Non entra prima nelle decisioni.</p></div><div class="tempo-col-footer">Posizione nella catena del valore: invariata.</div></div><div class="tempo-col"><div class="tempo-col-head b">Scenario B &mdash; cambio di posizione</div><div class="tempo-col-body"><p>Le ore liberate vengono reinvestite in consulenza proattiva, lettura dei dati, relazione con i clienti pi&ugrave; rilevanti.</p><p><strong>Risultato:</strong> lo studio entra prima nelle decisioni. Il cliente non compra solo output: cerca orientamento.</p></div><div class="tempo-col-footer">Posizione nella catena del valore: superiore.</div></div></div><div class="tempo-statement fade"><p class="tempo-statement-text">La stessa tecnologia. <em>Due studi diversi.</em></p></div></div>
+<div class="s-bar" id="test"><span class="s-bar-num">06</span><span class="s-bar-title">Il Test</span><span class="s-bar-right">Una domanda che diagnostica il modello</span></div>
+<div class="test-section"><div class="test-intro fade"><div class="s-label" style="margin-bottom:0;">Compliance o consulenza</div><h2 class="test-question">Il cliente ti chiama <em>prima</em><br>o dopo una decisione importante?</h2></div><div class="test-answers fade"><div class="test-answer"><div class="test-tag after">Se dopo &#8594;</div><div class="test-answer-title after">Stavi facendo compliance.</div><div class="test-answer-text">Hai eseguito, probabilmente bene. Ma il momento della scelta era gi&agrave; avvenuto senza di te. Il cliente ha deciso, poi ha comunicato. Il tuo ruolo era validare, non influenzare.</div></div><div class="test-answer"><div class="test-tag before">Se prima &#8594;</div><div class="test-answer-title before">Stavi facendo consulenza.</div><div class="test-answer-text">Eri nel processo. La tua valutazione ha influenzato la scelta &mdash; o almeno il modo in cui veniva considerata. Il cliente ti vedeva come parte del ragionamento, non come esecutore del risultato.</div></div></div><div class="test-note fade"><strong>La differenza tra compliance e consulenza non &egrave; la competenza.</strong> &Egrave; il momento in cui entri nel processo decisionale. Se arrivi dopo, validi una scelta gi&agrave; fatta. Se arrivi prima, contribuisci a costruirla. La compliance resta necessaria, ma il valore professionale si sposta verso ci&ograve; che influenza le decisioni.</div></div>
+<div class="s-bar" id="contatti-digitali"><span class="s-bar-num">07</span><span class="s-bar-title">I Punti di Contatto</span><span class="s-bar-right">Il rischio strutturale meno discusso</span></div>
+<div class="contact-section"><div class="col-2 fade"><div><div class="s-label">Attenzione strutturale</div><h2 class="display display-md">Quando la compliance passa da una piattaforma, non si automatizza solo un processo.<br><em>Si sposta un punto di relazione.</em></h2></div><div class="body-md"><p>La consulenza si costruisce nella continuit&agrave; del contatto. Se una piattaforma diventa il canale attraverso cui il cliente gestisce pagamenti, fatture, dichiarazioni o paghe, non sta solo eseguendo meglio una funzione: sta accumulando abitudine, dati e contesto. <strong>La domanda giusta non &egrave; solo &laquo;quanto tempo mi fa risparmiare?&raquo;. &Egrave;: quale relazione sta costruendo al posto mio?</strong></p></div></div><div class="contact-chain fade" style="margin-top: 44px;"><div class="chain-step"><div class="chain-num">01</div><div class="chain-title">Il cliente adotta una piattaforma</div><div class="chain-text">Pagamenti, fatturazione, dichiarazioni, paghe. Ogni funzione delegata a un sistema esterno.</div></div><div class="chain-step"><div class="chain-num">02</div><div class="chain-title">La piattaforma costruisce contesto</div><div class="chain-text">Raccoglie dati, diventa il canale di riferimento, costruisce abitudine e dipendenza diretta su quella funzione.</div></div><div class="chain-step"><div class="chain-num">03</div><div class="chain-title">Il contatto si riduce</div><div class="chain-text">Meno occasioni di leggere segnali, anticipare decisioni, costruire fiducia. Lo spazio per la consulenza proattiva si restringe.</div></div><div class="chain-step"><div class="chain-num">04</div><div class="chain-title">La consulenza non si costruisce</div><div class="chain-text">Il mandato formale resta. La relazione si &egrave; spostata. Senza contatto continuativo, non c&rsquo;&egrave; materiale su cui costruire advisory.</div></div></div><div class="chain-warn fade">La compliance presidiata pu&ograve; diventare occasione di relazione. La compliance ceduta integralmente a una piattaforma pu&ograve; diventare perdita di contesto. <strong>Quella differenza &egrave; strutturale &mdash; non tecnica.</strong></div></div>
+<div class="chiusura" id="chiusura"><div class="chiusura-left fade"><h2 class="chiusura-question">In quale parte del sistema<br>che si sta ridisegnando<br>vuoi essere <em>insostituibile?</em></h2><p class="chiusura-note">Se non sai dove vuoi essere insostituibile, il mercato lo decider&agrave; per te. Il futuro della professione non sar&agrave; uguale per tutti: dipender&agrave; dalla posizione che ciascuno sceglie di occupare.</p><div class="chiusura-contact"><div class="chiusura-contact-kicker">Conversazione aperta</div><p class="chiusura-contact-text">Studio Futuro nasce per mettere in relazione professionisti che stanno ragionando seriamente su questa transizione.</p><a class="chiusura-contact-link" href="mailto:hello@studiofuturo.it">Contattaci &#8594;</a></div></div><div class="chiusura-right fade fade-d1"><p class="chiusura-pattern">Il cambiamento professionale non arriva con un evento riconoscibile. Arriva con una serie di piccole decisioni mancate &mdash; clienti che non hanno portato quella domanda, decisioni a cui non si era presenti, posizioni che qualcun altro ha occupato nel frattempo. <strong>Quando diventa visibile, &egrave; gi&agrave; strutturato.</strong></p><p class="chiusura-pattern-note">Studio Futuro &#8212; 2026</p></div></div>
+<footer><div><div class="footer-brand">Studio <span>Futuro</span></div><div class="footer-desc">Studio Futuro nasce da una conversazione tra commercialisti, advisor e professionisti del digitale.</div><div class="footer-links"><a href="#hard-truth">Diagnosi</a><a href="#manifesto">Manifesto</a><a href="#framework">Framework</a><a href="#cambiamento">Cambiamento</a><a href="#test">Il test</a><a href="#contatti-digitali">Punti di contatto</a></div></div><div class="footer-copy">Manifesto per il commercialista AI-native &nbsp;&#183;&nbsp; 2026</div></footer>
+<script>
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => { const total = document.body.scrollHeight - window.innerHeight; if (total > 0) bar.style.width = (window.scrollY / total * 100).toFixed(1) + '%'; }, { passive: true });
+const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); } }); }, { threshold: 0.05, rootMargin: '0px 0px -24px 0px' });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+setTimeout(() => { document.querySelectorAll('.fade:not(.show)').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('show'); }); }, 80);
+const navAs = document.querySelectorAll('.nav-links a');
+document.querySelectorAll('[id]').forEach(s => new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.id; navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id)); } }); }, { rootMargin: '-28% 0px -68% 0px' }).observe(s));
+</script>
+</body>
+</html>
