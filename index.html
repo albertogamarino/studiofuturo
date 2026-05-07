@@ -507,6 +507,47 @@ footer { padding: 44px 80px; border-top: 1px solid var(--line); display: grid; g
 .footer-links a:hover { color: var(--text); }
 .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.06em; text-align: right; white-space: nowrap; }
 
+/* &#8212; DOWNLOAD &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212; */
+.download-section {
+  padding: 64px 80px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-2);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 80px;
+  align-items: center;
+}
+.download-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--acc); display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px;
+}
+.download-label::before { content: ''; display: block; width: 16px; height: 1px; background: var(--acc); }
+.download-title {
+  font-family: 'Fraunces', serif; font-weight: 300;
+  font-size: clamp(18px, 2.2vw, 28px);
+  color: var(--white); letter-spacing: -0.02em; line-height: 1.15;
+  margin-bottom: 12px;
+}
+.download-title em { font-style: italic; color: var(--acc); }
+.download-desc { font-size: 13px; color: var(--text-mid); line-height: 1.8; max-width: 520px; }
+.download-desc strong { color: var(--white); font-weight: 600; }
+.download-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex-shrink: 0; }
+.download-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.10em; text-transform: uppercase;
+  color: var(--bg); background: var(--acc);
+  padding: 14px 28px; text-decoration: none;
+  transition: opacity 0.2s; white-space: nowrap;
+}
+.download-btn:hover { opacity: 0.85; }
+.download-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; color: var(--text-dim);
+  letter-spacing: 0.04em; text-align: right; line-height: 1.6;
+}
+
 /* &#8212; SCROLL FADE &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212; */
 .fade { opacity: 0; transform: translateY(10px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .fade.show { opacity: 1; transform: none; }
@@ -641,6 +682,12 @@ footer { padding: 44px 80px; border-top: 1px solid var(--line); display: grid; g
 
   /* Contact */
   .contact-principle { padding: 20px; margin-top: 32px; }
+
+  /* Download */
+  .download-section { padding: 44px 20px; grid-template-columns: 1fr; gap: 24px; }
+  .download-cta { align-items: flex-start; }
+  .download-btn { width: 100%; text-align: center; justify-content: center; display: block; }
+  .download-meta { text-align: left; }
 
   /* Chiusura */
   .chiusura { padding: 72px 20px; gap: 40px; }
@@ -841,6 +888,19 @@ footer { padding: 44px 80px; border-top: 1px solid var(--line); display: grid; g
       </div>
     </div>
 
+  </div>
+</div>
+
+<!-- DOWNLOAD -->
+<div class="download-section fade" id="documento">
+  <div>
+    <div class="download-label">Il documento completo</div>
+    <h2 class="download-title">Questa pagina &egrave; una sintesi.<br>Il documento va <em>pi&ugrave; in fondo.</em></h2>
+    <p class="download-desc">18 pagine. Approfondisce le cinque posizioni professionali, il modello economico che regge, la governance AI e un esempio concreto di come cambia il rapporto con il cliente. <strong>Download libero &mdash; nessun form.</strong></p>
+  </div>
+  <div class="download-cta">
+    <a href="/commercialista-futuro.pdf" download class="download-btn">Scarica il PDF &#8594;</a>
+    <p class="download-meta">PDF &nbsp;&#183;&nbsp; 18 pagine &nbsp;&#183;&nbsp; Studio Futuro 2026</p>
   </div>
 </div>
 
@@ -1117,6 +1177,7 @@ footer { padding: 44px 80px; border-top: 1px solid var(--line); display: grid; g
     <div class="footer-links">
       <a href="#hard-truth">Diagnosi</a>
       <a href="#manifesto">Manifesto</a>
+      <a href="#documento">Documento</a>
       <a href="#framework">Framework</a>
       <a href="#cambiamento">Cambiamento</a>
       <a href="#test">Il test</a>
